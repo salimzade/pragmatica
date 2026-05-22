@@ -393,7 +393,6 @@ html:not(.dark) .fa-moon {
   background-color: #0f172a;
   color: #ffffff;
   transition: background-color 0.2s ease;
-  border-radius: 0.25rem;
 }
 
 html.dark .btn-primary {
@@ -891,7 +890,6 @@ html.dark .principle-num {
   color: #ffffff;
   transition: all 0.2s ease;
   margin-top: 1rem;
-  border-radius: 0.25rem;
 }
 
 .btn-email:hover {
