@@ -131,7 +131,6 @@ const translations = {
     footerRights: "© 2026 Pragmatica. Bütün hüquqlar qorunur.",
   },
 };
-
 // 2. Dynamic Phrases for Hero Section
 const localizedPhrases = {
   en: [
@@ -200,11 +199,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function resetHeroText(lang) {
     if (!textElement) return;
     if (textInterval) clearInterval(textInterval);
-
+    
     const activePhrases = localizedPhrases[lang];
     currentIdx = 0;
-
-    // Completely wipe formatting and re-inject base tracking structure
+    
     textElement.className = "hero-desc visible";
     textElement.textContent = activePhrases[currentIdx].text;
     textElement.classList.add(activePhrases[currentIdx].colorClass);
@@ -218,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         currentIdx = (currentIdx + 1) % activePhrases.length;
         textElement.textContent = activePhrases[currentIdx].text;
-
+        
         textElement.classList.add(activePhrases[currentIdx].colorClass);
         textElement.classList.remove("exit");
 
@@ -230,22 +228,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 5. Strict Localization Management Engine (SEO & Production Parameter Friendly)
   const urlParams = new URLSearchParams(window.location.search);
-  const urlLang = urlParams.get("lang");
-
+  const urlLang = urlParams.get('lang');
+  
   let savedLang = urlLang || localStorage.getItem("lang");
-
+  
   if (savedLang !== "en" && savedLang !== "az") {
     savedLang = "en";
   }
-
+  
   localStorage.setItem("lang", savedLang);
   let currentLang = savedLang;
 
   function applyLocalization(lang) {
-    document.querySelectorAll("[data-i18n]").forEach((element) => {
+    document.querySelectorAll("[data-i18n]").forEach(element => {
       const key = element.getAttribute("data-i18n");
-      // Check if global translation dictionary object exists
-      if (typeof translations !== "undefined" && translations[lang] && translations[lang][key]) {
+      if (translations[lang] && translations[lang][key]) {
         if (key === "badgeText") {
           element.innerHTML = `<i class="fa-solid fa-circle-check"></i>${translations[lang][key]}`;
         } else {
@@ -253,13 +250,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     });
-
+    
     if (langToggleBtn) {
       langToggleBtn.textContent = lang === "en" ? "AZ" : "EN";
     }
     document.documentElement.setAttribute("lang", lang);
-
-    // Cycle the interactive dynamic title sequences safely
+    
     resetHeroText(lang);
   }
 
@@ -267,49 +263,39 @@ document.addEventListener("DOMContentLoaded", () => {
     langToggleBtn.addEventListener("click", () => {
       currentLang = currentLang === "en" ? "az" : "en";
       localStorage.setItem("lang", currentLang);
-
-      // Update URL query string parameters dynamically without reloading the browser
-      const newUrl =
-        window.location.protocol +
-        "//" +
-        window.location.host +
-        window.location.pathname +
-        (currentLang === "az" ? "?lang=az" : "");
-      window.history.pushState({ path: newUrl }, "", newUrl);
-
+      
+      const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + (currentLang === "az" ? "?lang=az" : "");
+      window.history.pushState({ path: newUrl }, '', newUrl);
+      
       applyLocalization(currentLang);
     });
   }
 
-  // Fire execution loop safely
   applyLocalization(currentLang);
 });
 
 // 6. Copy Email Clipboard Logic
-const emailBtn = document.getElementById("copy-email-btn");
-const copyBadge = document.getElementById("copy-badge");
+const emailBtn = document.getElementById('copy-email-btn');
+const copyBadge = document.getElementById('copy-badge');
 let badgeTimeout = null;
 
 if (emailBtn && copyBadge) {
-  emailBtn.addEventListener("click", function (event) {
-    event.preventDefault();
+  emailBtn.addEventListener('click', function(event) {
+    event.preventDefault(); 
     const emailText = "hello@pragmatica.io";
-
-    navigator.clipboard
-      .writeText(emailText)
-      .then(() => {
-        if (badgeTimeout) {
-          clearTimeout(badgeTimeout);
-        }
-
-        copyBadge.classList.add("show");
-
-        badgeTimeout = setTimeout(() => {
-          copyBadge.classList.remove("show");
-        }, 5000);
-      })
-      .catch((err) => {
-        console.error("Failed to copy text string: ", err);
-      });
+    
+    navigator.clipboard.writeText(emailText).then(() => {
+      if (badgeTimeout) {
+        clearTimeout(badgeTimeout);
+      }
+      
+      copyBadge.classList.add('show');
+      
+      badgeTimeout = setTimeout(() => {
+        copyBadge.classList.remove('show');
+      }, 5000);
+    }).catch(err => {
+      console.error('Failed to copy text string: ', err);
+    });
   });
 }
