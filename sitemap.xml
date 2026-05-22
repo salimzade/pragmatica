@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://pragmatica.cc/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    
+    <xhtml:link rel="alternate" hreflang="en" href="https://pragmatica.cc/" />
+    <xhtml:link rel="alternate" hreflang="az" href="https://pragmatica.cc/?lang=az" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pragmatica.cc/" />
+  </url>
+
+  <url>
+    <loc>https://pragmatica.cc/?lang=az</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    
+    <xhtml:link rel="alternate" hreflang="en" href="https://pragmatica.cc/" />
+    <xhtml:link rel="alternate" hreflang="az" href="https://pragmatica.cc/?lang=az" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pragmatica.cc/" />
+  </url>
+
+</urlset>

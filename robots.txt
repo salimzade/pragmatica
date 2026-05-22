@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow any duplicate asset files or configuration environments if added later
+Disallow: /README.md
+Disallow: /.github/
+
+# Point search crawlers directly to your sitemap map file
+Sitemap: https://pragmatica.cc/sitemap.xml
