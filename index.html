@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pragmatica | Reliable Enterprise Management Systems & Internal Tooling</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/8ea9408bb0.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Early Initialization Script to Avoid Light Flash on Dark Mode Load -->
+    <script>
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- 1. Navigation Bar -->
+    <nav id="navbar">
+      <div class="container nav-container">
+        <!-- Logo -->
+        <a href="#" class="logo">
+          <span class="logo-square"></span>
+          <span>Pragmatica</span>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <div class="nav-links">
+          <a href="#focus">Capabilities</a>
+          <a href="#products">Products</a>
+          <a href="#stack">Technology</a>
+          <a href="#principles">Approach</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <!-- Action Controls (Theme Toggle + Mobile Menu Menu Toggle) -->
+        <div class="nav-controls">
+          <!-- Theme Toggle Button -->
+          <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+            <i class="fa-solid fa-moon"></i>
+            <i class="fa-solid fa-sun"></i>
+          </button>
+
+          <!-- Mobile Menu Toggle -->
+          <button id="mobile-menu-btn" class="mobile-menu-btn">
+            <i class="fa-solid fa-bars-staggered"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-drawer" class="mobile-drawer">
+        <a href="#focus">Capabilities</a>
+        <a href="#products">Products</a>
+        <a href="#stack">Technology</a>
+        <a href="#principles">Approach</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <!-- 2. Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Straightforward software solutions for managing operations, teams, and resources —
+            without the chaos.
+          </h1>
+
+          <!-- Dynamic Animated Paragraph Container -->
+          <div class="hero-desc-dynamic">
+            <p id="dynamic-text" class="hero-desc visible">
+              Clean software for organized operations.
+            </p>
+          </div>
+
+          <div style="padding-top: 0.5rem">
+            <a href="#contact" class="btn-primary"> Discuss Your Project </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Social Proof Section -->
+    <section class="social-section">
+      <div class="container">
+        <p class="social-title">Building workflows with trusted industry standards</p>
+        <div class="grid-4 social-grid">
+          <span class="social-brand"> <i class="fa-brands fa-postgresql"></i>postgresql </span>
+          <span class="social-brand"><i class="fa-brands fa-figma"></i>figma</span>
+          <span class="social-brand"><i class="fa-brands fa-aws"></i>aws</span>
+          <span class="social-brand"><i class="fa-brands fa-github"></i>github</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Core Focus Section -->
+    <section id="focus" class="capabilities-section">
+      <div class="container">
+        <div class="grid-12">
+          <div class="col-4">
+            <h2 class="section-label">Core Capabilities</h2>
+          </div>
+          <div class="col-8 grid-inner-capabilities">
+            <div class="capability-item">
+              <h3 class="capability-title">Custom ERP Applications</h3>
+              <p class="capability-desc">
+                Tailored business management structures designed to map your actual workflows,
+                organize company data, and keep different departments in sync.
+              </p>
+            </div>
+            <div class="capability-item">
+              <h3 class="capability-title">Intuitive Internal Tools</h3>
+              <p class="capability-desc">
+                Clean, easy-to-use control dashboards built specifically for your staff to manage
+                daily checklists, client requests, and operations without clutter.
+              </p>
+            </div>
+            <div class="capability-item">
+              <h3 class="capability-title">Inventory & Asset Tracking</h3>
+              <p class="capability-desc">
+                Practical database solutions for accurate balance tracking, real-time item status
+                updates, and transparent transaction logs.
+              </p>
+            </div>
+            <div class="capability-item">
+              <h3 class="capability-title">Secure Business Backends</h3>
+              <p class="capability-desc">
+                Stable, dependable system frameworks that securely handle data storage, processing
+                rules, and user access permissions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Our Products Section -->
+    <section id="products" class="products-section">
+      <div class="products-container">
+        <div class="section-header">
+          <p class="section-subtitle">Software Ready-to-Deploy</p>
+          <h2 class="section-main-title">Our Management Modules</h2>
+        </div>
+
+        <div class="products-grid">
+          <!-- HRM -->
+          <div class="product-card">
+            <div class="product-icon">
+              <i class="fa-solid fa-users-gear"></i>
+            </div>
+            <span class="product-name">Human Resource Management</span>
+            <p class="product-desc">
+              Handles team structures, personnel records, and employee status tracking. Helps
+              companies organize internal development and simplify day-to-day HR processes.
+            </p>
+          </div>
+
+          <!-- Warehouse Management -->
+          <div class="product-card">
+            <div class="product-icon">
+              <i class="fa-solid fa-warehouse"></i>
+            </div>
+            <span class="product-name">Warehouse Management (WMS)</span>
+            <p class="product-desc">
+              Optimizes product storage, inventory movement, and stock tracking. Automates core
+              warehouse operations to cut down manual errors and lower costs.
+            </p>
+          </div>
+
+          <!-- Pawnshop Management -->
+          <div class="product-card">
+            <div class="product-icon">
+              <i class="fa-solid fa-scale-balanced"></i>
+            </div>
+            <span class="product-name">Pawnshop Management</span>
+            <p class="product-desc">
+              Keeps track of collateral assets, customer files, and financial agreements.
+              Streamlines daily retail transactions and simplifies inventory logs.
+            </p>
+          </div>
+
+          <!-- Gym Management -->
+          <div class="product-card">
+            <div class="product-icon"><i class="fa-solid fa-dumbbell"></i></div>
+            <span class="product-name">Gym & Complex Management</span>
+            <p class="product-desc">
+              A web-based platform for handling club memberships, check-in access limits, active
+              subscriptions, and clear financial record-keeping.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section id="stack" class="stack-section">
+      <div class="container">
+        <div class="stack-header">
+          <p class="section-label">Technical Foundations</p>
+          <h2
+            class="capability-title"
+            style="font-size: 1.5rem; @media (min-width: 768px) {font-size: 1.875rem}"
+          >
+            Our Production Stack
+          </h2>
+        </div>
+
+        <div class="grid-3">
+          <!-- Card 1 -->
+          <div class="stack-card">
+            <span class="card-label">Backend & Runtimes</span>
+            <div class="stack-list">
+              <div>
+                <span class="stack-item-title">Node.js</span>
+                <span class="stack-item-desc">High-performance, event-driven server logic.</span>
+              </div>
+              <div class="stack-divider">
+                <span class="stack-item-title">Bun</span>
+                <span class="stack-item-desc">Fast, modern native runtime compilation.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="stack-card">
+            <span class="card-label">Databases & Storage</span>
+            <div class="stack-list">
+              <div>
+                <span class="stack-item-title">PostgreSQL</span>
+                <span class="stack-item-desc">Relational data integrity and complex queries.</span>
+              </div>
+              <div class="stack-divider">
+                <span class="stack-item-title">MongoDB</span>
+                <span class="stack-item-desc"
+                  >Flexible document storage for fast data scaling.</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="stack-card">
+            <span class="card-label">Frontend Interfaces</span>
+            <div class="stack-list">
+              <div>
+                <span class="stack-item-title">Vue.js</span>
+                <span class="stack-item-desc"
+                  >Predictable state rendering and responsive tools.</span
+                >
+              </div>
+              <div class="stack-divider">
+                <span class="stack-item-title">React</span>
+                <span class="stack-item-desc">Component-driven modular frontend systems.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Our Principles Section -->
+    <section id="principles" class="principles-section">
+      <div class="container">
+        <div class="grid-12">
+          <div class="col-4">
+            <h2 class="section-label section-label-light">Our Approach</h2>
+          </div>
+          <div class="col-8">
+            <ul class="principles-list">
+              <li class="principle-item">
+                <span class="principle-num">01 /</span>
+                <div>
+                  <h3 class="principle-heading">Clear Visual Architecture</h3>
+                  <p class="principle-desc">
+                    We don't build confusing, overdesigned systems. Our software focuses on
+                    intuitive layouts, readable fonts, and distinct functional views so your team
+                    can work instantly without endless training.
+                  </p>
+                </div>
+              </li>
+              <li class="principle-item">
+                <span class="principle-num">02 /</span>
+                <div>
+                  <h3 class="principle-heading">No Feature Bloat</h3>
+                  <p class="principle-desc">
+                    We stick to what is useful. By intentionally omitting unnecessary administrative
+                    buttons and hidden menus, we build lightweight tools that solve problems
+                    directly and maintain speed.
+                  </p>
+                </div>
+              </li>
+              <li class="principle-item">
+                <span class="principle-num">03 /</span>
+                <div>
+                  <h3 class="principle-heading">Clean, Maintainable Code</h3>
+                  <p class="principle-desc">
+                    Our software modules use predictable, modular, and type-safe code bases. This
+                    makes updates, software expansions, and cross-branch rollouts uncomplicated as
+                    your business footprint grows.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Call to Action -->
+    <section id="contact" class="contact-section">
+      <div class="contact-container">
+        <h2 class="contact-title">Let's organize your operational tools.</h2>
+        <p class="contact-desc">
+          Contact our development team directly to discuss your system needs, project timelines, or
+          platform integration details.
+        </p>
+        <div>
+          <a href="mailto:hello@pragmatica.io" class="btn-email"> hello@pragmatica.io </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Footer -->
+    <footer>
+      <div class="container footer-container">
+        <div class="footer-logo">
+          <span class="footer-logo-square"></span>
+          <span>Pragmatica</span>
+        </div>
+        <div style="text-align: center">Baku, Azerbaijan &bull; Operating Globally</div>
+        <div>&copy; 2026 Pragmatica. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <!-- Native JavaScript Interactions -->
+    <script src="script.js"></script>
+  </body>
+</html>
