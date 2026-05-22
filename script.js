@@ -131,6 +131,19 @@ const translations = {
     footerRights: "© 2026 Pragmatica. Bütün hüquqlar qorunur.",
   },
 };
+
+// 2. Dynamic Phrases for Hero Section
+const localizedPhrases = {
+  en: [
+    { text: "Clean software for organized operations.", colorClass: "text-purple" },
+    { text: "Reliable tools built for real business workflows.", colorClass: "text-green" }
+  ],
+  az: [
+    { text: "Mütəşəkkil əməliyyatlar üçün təmiz proqram təminatı.", colorClass: "text-purple" },
+    { text: "Real biznes iş axınları üçün qurulmuş etibarlı alətlər.", colorClass: "text-green" }
+  ]
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   const html = document.documentElement;
   const navbar = document.getElementById("navbar");
