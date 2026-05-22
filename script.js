@@ -79,3 +79,35 @@ setInterval(() => {
     textElement.classList.add("visible");
   }, 600); // Matches the 0.6s transition speed precisely
 }, 4000); // Rotates every 4 seconds
+
+// Copy Email Clipboard Logic
+const emailBtn = document.getElementById('copy-email-btn');
+const copyBadge = document.getElementById('copy-badge');
+let badgeTimeout = null;
+
+if (emailBtn && copyBadge) {
+  emailBtn.addEventListener('click', function(event) {
+    // Prevent the default mailto app popup if you just want to copy on click
+    event.preventDefault(); 
+    
+    const emailText = "hello@pragmatica.io";
+    
+    // Core async Clipboard browser API 
+    navigator.clipboard.writeText(emailText).then(() => {
+      // Clear any running timeouts if the user clicks repeatedly
+      if (badgeTimeout) {
+        clearTimeout(badgeTimeout);
+      }
+      
+      // Reveal the success check badge
+      copyBadge.classList.add('show');
+      
+      // Dismiss the badge cleanly after exactly 5 seconds
+      badgeTimeout = setTimeout(() => {
+        copyBadge.classList.remove('show');
+      }, 5000);
+    }).catch(err => {
+      console.error('Failed to copy text string: ', err);
+    });
+  });
+}
