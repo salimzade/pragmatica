@@ -97,7 +97,7 @@ const translations = {
     p2Heading: "Artıq Funksionallıq Yoxdur",
     p2Desc: "Biz yalnız faydalı olan xüsusiyyətlərə sadiq qalırıq. Lazımsız inzibati düymələri və gizli menyuları qəsdən çıxararaq, problemləri birbaşa həll edən və sürəti qoruyan yüngül alətlər qururuq.",
     p3Heading: "Təmiz və Dayanıqlı Kod Altyapısı",
-    p3Desc: "Proqram modullarımız proqnozlaşdırıla bilən, modul və tip-təhlükəsiz kod bazalarından istifadə edir. Bu isə biznesiniz böyüdükcə yeniləmələri, proqram genişləndirilməsini və sistem strukturunun dəyişdirilməsini asanlaşdırır.",
+    p3Desc: "Proqram modullarımız proqnozlaşdırıla bilən, modul və tip-təhlükəsiz kod bazalarından istifadə edir. This makes updates, software expansions, and cross-branch rollouts uncomplicated as your business footprint grows.",
     ctaTitle: "Əməliyyat alətlərinizi birlikdə nizamlayaq.",
     ctaDesc: "Sistem ehtiyaclarınızı, layihə müddətlərini və ya platforma inteqrasiya detallarını müzakirə etmək üçün birbaşa texniki komandamızla əlaqə saxlayın.",
     badgeText: " E-poçt kopyalandı!",
@@ -105,6 +105,7 @@ const translations = {
     footerRights: "© 2026 Pragmatica. Bütün hüquqlar qorunur."
   }
 };
+
 // Dynamic Phrases for Hero Section
 const localizedPhrases = {
   en: [
@@ -126,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const langToggleBtn = document.getElementById("lang-toggle");
   const textElement = document.getElementById("dynamic-text");
 
-  // 1. Dark Mode Toggle
+  // 1. Dark Mode Toggle Module
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
       html.classList.toggle("dark");
@@ -135,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 2. Mobile Drawer Interaction
+  // 2. Mobile Drawer Interaction Module
   if (mobileMenuBtn && mobileDrawer) {
     mobileMenuBtn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -149,13 +150,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.addEventListener("click", (e) => {
-      if (!navbar.contains(e.target)) {
+      if (navbar && !navbar.contains(e.target)) {
         mobileDrawer.classList.remove("active");
       }
     });
   }
 
-  // 3. Performance-Optimized Navbar Scroll State Trigger
+  // 3. Performance-Optimized Navbar Scroll Trigger
   window.addEventListener("scroll", () => {
     if (navbar) {
       if (window.scrollY > 20) {
@@ -166,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 4. Hero Text Animation Toggler Module
+  // 4. Hero Text Animation Engine
   let currentIdx = 0;
   let textInterval = null;
 
@@ -177,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const activePhrases = localizedPhrases[lang];
     currentIdx = 0;
     
-    // Reset the animation classes and text
+    // Completely wipe formatting and re-inject base tracking structure
     textElement.className = "hero-desc visible";
     textElement.textContent = activePhrases[currentIdx].text;
     textElement.classList.add(activePhrases[currentIdx].colorClass);
@@ -195,14 +196,19 @@ document.addEventListener("DOMContentLoaded", () => {
         textElement.classList.add(activePhrases[currentIdx].colorClass);
         textElement.classList.remove("exit");
 
-        void textElement.offsetWidth; // Force reflow
+        void textElement.offsetWidth; // Force hardware reflow rendering trigger
         textElement.classList.add("visible");
       }, 600);
     }, 4000);
   }
 
-  // 5. Localization Logic Engine
-  let currentLang = localStorage.getItem("lang") || "en";
+  // 5. Strict Localization Management Engine (Optimized for Production Hosts)
+  let savedLang = localStorage.getItem("lang");
+  if (savedLang !== "en" && savedLang !== "az") {
+    savedLang = "en";
+    localStorage.setItem("lang", "en");
+  }
+  let currentLang = savedLang;
 
   function applyLocalization(lang) {
     document.querySelectorAll("[data-i18n]").forEach(element => {
@@ -221,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     document.documentElement.setAttribute("lang", lang);
     
-    // Reload the slider text with the current language
+    // Cycle the interactive dynamic title sequences safely
     resetHeroText(lang);
   }
 
@@ -233,7 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Initialize localization on first load
+  // Fire execution loop safely
   applyLocalization(currentLang);
 });
 
